@@ -80,7 +80,8 @@ python -m pip install -e ".[dev]"
 
 > **¿Prefieres no usar la terminal?** Haz doble clic en
 > `Iniciar syskeeper.bat` (raíz del proyecto) y elige una opción del menú.
-> También puedes ejecutar `python iniciar.py` desde una consola.
+> `scripts\ejecutar.bat` sin argumentos abre el mismo menú; con argumentos
+> ejecuta ese comando y termina. También puedes usar `python iniciar.py`.
 
 > Si el comando `syskeeper` no se reconoce, usa `python -m syskeeper` o añade la
 > carpeta `Scripts` de tu instalación de Python al `PATH`.

@@ -31,6 +31,18 @@ para que puedas leer el mensaje. El equivalente manual es:
 python iniciar.py
 ```
 
+`scripts\ejecutar.bat` también abre este menú cuando se ejecuta **sin
+argumentos** (por ejemplo, con doble clic). Con argumentos se comporta como
+lanzador de comandos:
+
+```powershell
+scripts\ejecutar.bat limpiar
+scripts\ejecutar.bat smart
+```
+
+Así no hay forma de quedarse con una ventana que se cierra sin explicación:
+ambos archivos `.bat` muestran el menú o el resultado y esperan antes de salir.
+
 ## Comandos y opciones
 
 ```

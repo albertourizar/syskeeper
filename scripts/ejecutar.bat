@@ -1,8 +1,13 @@
 @echo off
 rem ---------------------------------------------------------------------------
-rem  syskeeper - lanzador para linea de comandos
-rem  Requiere haber instalado el paquete:  python -m pip install -e .
-rem  Uso:  scripts\ejecutar.bat limpiar --aplicar
+rem  syskeeper - lanzador
+rem
+rem  Sin argumentos  -> abre el menu interactivo (pensado para doble clic).
+rem  Con argumentos  -> ejecuta ese comando:
+rem                     scripts\ejecutar.bat limpiar
+rem                     scripts\ejecutar.bat smart
+rem
+rem  Requiere el paquete instalado:  python -m pip install -e .
 rem ---------------------------------------------------------------------------
 chcp 65001 >nul
 setlocal EnableExtensions
@@ -19,22 +24,23 @@ if errorlevel 1 (
     exit /b 2
 )
 
+if "%~1"=="" goto :menu
+
 python -m syskeeper %*
 set "CODIGO=%ERRORLEVEL%"
-
-if "%~1"=="" (
-    echo.
-    echo Este lanzador necesita argumentos. Ejemplo:
-    echo     scripts\ejecutar.bat limpiar
-    echo     scripts\ejecutar.bat smart
-    echo.
-    echo Para un menu interactivo usa "Iniciar syskeeper.bat" en la raiz.
-    echo.
-    pause
-)
 
 if "%CODIGO%"=="0" goto :fin
 if "%CODIGO%"=="1" echo [AVISO] La ejecucion termino con avisos. Revisa el informe.
 if "%CODIGO%"=="2" echo [ERROR] La ejecucion fallo. Revisa el registro.
+goto :fin
+
+:menu
+python iniciar.py
+set "CODIGO=%ERRORLEVEL%"
+if "%CODIGO%"=="0" goto :fin
+echo.
+echo syskeeper termino con el codigo %CODIGO%.
+pause
+
 :fin
 exit /b %CODIGO%
