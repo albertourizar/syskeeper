@@ -1,0 +1,46 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Empaquetado y distribución
+build/
+dist/
+*.egg-info/
+.eggs/
+wheelhouse/
+
+# Pruebas y cobertura
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+
+# Herramientas
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# Salidas del propio programa
+informes/
+*.log
+
+# Configuración local (el ejemplo sí se versiona)
+config.json
+
+# Editores y sistema
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store

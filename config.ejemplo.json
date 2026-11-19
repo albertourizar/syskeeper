@@ -1,0 +1,20 @@
+{
+  "antiguedad_horas": 24.0,
+  "antiguedad_cache_horas": 0.0,
+  "incluir_temporales_sistema": true,
+  "incluir_prefetch": false,
+  "limpiar_papelera": true,
+  "navegadores": [
+    "chrome",
+    "edge",
+    "firefox",
+    "brave",
+    "opera"
+  ],
+  "directorios_temporales_extra": [],
+  "rutas_protegidas_extra": [],
+  "generar_informe": true,
+  "carpeta_informes": "informes",
+  "retencion_informes_dias": 90,
+  "incluir_espacio_libre": true
+}
