@@ -25,9 +25,9 @@ Comprobación rápida:
 
 ```powershell
 python -m pytest -q
-python -m ruff check src tests
-python -m ruff format --check src tests
-python -m mypy src
+python -m ruff check src tests iniciar.py
+python -m ruff format --check src tests iniciar.py
+python -m mypy src iniciar.py
 ```
 
 ## Estilo
@@ -77,7 +77,7 @@ Un commit debe contar una sola intención. Los mensajes pueden ir en español.
 
 - [ ] `pytest` pasa.
 - [ ] `ruff check` y `ruff format --check` pasan.
-- [ ] `mypy src` pasa.
+- [ ] `mypy src iniciar.py` pasa.
 - [ ] `CHANGELOG.md` actualizado si afecta al usuario.
 - [ ] Documentación revisada (README, `docs/`).
 - [ ] No se incluyen rutas personales, tokens ni capturas con datos privados.

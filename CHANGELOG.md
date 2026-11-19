@@ -23,7 +23,9 @@ el proyecto usa [Versionado semántico](https://semver.org/lang/es/).
   unidad.
 - Subcomandos `limpiar`, `smart`, `informe`, `todo` y `config`.
 - Códigos de salida 0/1/2/130 para automatización y CI.
-- Suite de 87 pruebas con pytest, cobertura superior al 80 %, ruff y mypy.
+- Menú interactivo `iniciar.py` y lanzador `Iniciar syskeeper.bat` para usar
+  con doble clic, además del lanzador de línea de comandos.
+- Suite de 92 pruebas con pytest, cobertura superior al 80 %, ruff y mypy.
 - CI en GitHub Actions para Windows (Python 3.10, 3.12 y 3.13) y flujo de
   publicación de releases.
 - Documentación completa en español, plantillas de issue/PR y guías de

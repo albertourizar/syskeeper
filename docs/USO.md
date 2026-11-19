@@ -2,6 +2,35 @@
 
 Esta guía amplía el README con recetas, opciones y solución de problemas.
 
+## Inicio con doble clic (sin terminal)
+
+Haz doble clic en **`Iniciar syskeeper.bat`** (en la raíz del proyecto). Se abre
+un menú:
+
+```
+============================================================
+   syskeeper 1.0.0 · mantenimiento y limpieza de Windows
+============================================================
+
+  1. Simular limpieza (no borra nada)
+  2. Limpiar de verdad (pedirá escribir SI)
+  3. Analizar la salud de los discos (SMART)
+  4. Generar un informe sin borrar nada
+  5. Limpieza completa + SMART (pedirá escribir SI)
+  6. Crear config.json de ejemplo
+  0. Salir
+
+Elige una opción y pulsa Enter:
+```
+
+El lanzador requiere que el paquete esté instalado (`python -m pip install -e .`)
+y que `python` esté en el `PATH`. Si algo falla, la ventana se queda abierta
+para que puedas leer el mensaje. El equivalente manual es:
+
+```powershell
+python iniciar.py
+```
+
 ## Comandos y opciones
 
 ```

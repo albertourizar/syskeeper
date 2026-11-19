@@ -78,6 +78,13 @@ python -m pip install -e ".[dev]"
 | `syskeeper todo --aplicar --si` | Limpieza + SMART sin preguntas (tareas). |
 | `syskeeper config --ejemplo` | Crea un `config.json` editable. |
 
+> **¿Prefieres no usar la terminal?** Haz doble clic en
+> `Iniciar syskeeper.bat` (raíz del proyecto) y elige una opción del menú.
+> También puedes ejecutar `python iniciar.py` desde una consola.
+
+> Si el comando `syskeeper` no se reconoce, usa `python -m syskeeper` o añade la
+> carpeta `Scripts` de tu instalación de Python al `PATH`.
+
 ### 1. Ver cuánto se puede liberar (sin borrar)
 
 ```powershell
@@ -235,9 +242,9 @@ schtasks /Create /TN "syskeeper - limpieza diaria" ^
 
 ```powershell
 python -m pip install -e ".[dev]"
-python -m ruff check src tests
-python -m ruff format --check src tests
-python -m mypy src
+python -m ruff check src tests iniciar.py
+python -m ruff format --check src tests iniciar.py
+python -m mypy src iniciar.py
 python -m pytest --cov=syskeeper --cov-report=term-missing
 ```
 
@@ -254,6 +261,8 @@ powershell -ExecutionPolicy Bypass -File scripts\generar-captura.ps1
 
 ```
 syskeeper/
+├─ iniciar.py               # menú interactivo para doble clic
+├─ Iniciar syskeeper.bat    # lanzador de Windows
 ├─ src/syskeeper/           # paquete instalable
 │  ├─ cli.py                # subcomandos y códigos de salida
 │  ├─ config.py             # configuración validada
@@ -263,7 +272,7 @@ syskeeper/
 │  ├─ registro.py           # log rotativo
 │  ├─ utilidades.py         # rutas protegidas y PowerShell
 │  └─ modules/              # temporales, papelera, cachés y SMART
-├─ tests/                   # 87 pruebas con pytest
+├─ tests/                   # 92 pruebas con pytest
 ├─ docs/                    # guías y capturas
 ├─ scripts/                 # ejecución y publicación
 └─ .github/                 # CI, release y plantillas
