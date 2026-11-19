@@ -1,0 +1,56 @@
+name: Propuesta de mejora
+description: Sugiere una función, un módulo o una mejora de documentación
+title: "[Mejora] "
+labels: ["mejora"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de proponer una función, revisa el README y la hoja de ruta.
+
+  - type: textarea
+    id: problema
+    attributes:
+      label: ¿Qué problema resuelve?
+      description: Describe la necesidad, no solo la solución.
+    validations:
+      required: true
+
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+      description: ¿Cómo te gustaría que funcionara? Incluye el comando o la opción.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ambito
+    attributes:
+      label: Ámbito
+      options:
+        - Limpieza (temporales, papelera, cachés)
+        - Diagnóstico SMART
+        - Informes
+        - CLI y configuración
+        - Documentación
+        - Otro
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: seguridad
+    attributes:
+      label: Seguridad
+      options:
+        - label: La propuesta mantiene el modo simulación por defecto.
+          required: true
+        - label: La propuesta no requiere ejecutar como SYSTEM ni elevar privilegios automáticamente.
+          required: true

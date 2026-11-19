@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentación y guía de uso
+    url: https://github.com/albertourizar/syskeeper/blob/main/docs/USO.md
+    about: Opciones, recetas y solución de problemas.
+  - name: Preguntas frecuentes
+    url: https://github.com/albertourizar/syskeeper/blob/main/docs/PREGUNTAS_FRECUENTES.md
+    about: Respuestas a las dudas más habituales.
+  - name: Aviso de seguridad
+    url: https://github.com/albertourizar/syskeeper/security/advisories/new
+    about: No publiques vulnerabilidades en un issue público.

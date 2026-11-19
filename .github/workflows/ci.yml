@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruebas:
+    name: Pruebas (Python ${{ matrix.python-version }})
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12", "3.14"]
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Comprobar estilo
+        run: python -m ruff check src tests
+
+      - name: Comprobar formato
+        run: python -m ruff format --check src tests
+
+      - name: Analizar tipos
+        run: python -m mypy src
+
+      - name: Ejecutar pruebas
+        run: python -m pytest --cov=syskeeper --cov-report=term-missing --cov-fail-under=75
+
+  paquete:
+    name: Construir paquete
+    runs-on: windows-latest
+    needs: pruebas
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Construir distribución
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build
+
+      - name: Guardar artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribucion
+          path: dist/*
+          if-no-files-found: error
